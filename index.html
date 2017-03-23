@@ -20,6 +20,7 @@
   <script id="chirps-template" type="text/x-handlebars-template">
     {{#each chirp}}
     <div class="row">
+      <h4>User</h4>
       <div class="col-md-2">
         <div class="row">
           <img src = "{{user.photo_url}}" />
@@ -28,11 +29,12 @@
           <p>{{user.username}}</p>
         </div>
       </div>
+      <h4>Chirp</h4>
       <div class="col-md-10">
         {{body}}
       </div>
       <div class="row">
-        Created on: {{created_at}}
+        Created on: {{formatTime created_at}}
       </div>
     </div>
     {{/each}}

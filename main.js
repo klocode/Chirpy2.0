@@ -17,16 +17,16 @@
   // })
 // }
 
+//Adventure
 
 $.getJSON('https://shielded-taiga-17184.herokuapp.com/posts')
 .done(function(chirps) {
   var source   = $("#chirps-template").html();
   var template = Handlebars.compile(source);
-  var context = {
-    user: {
-      photo_url: chirps.user.photo_url,
-      username: chirps.user.username},
-    body: chirps.body,
-    created_at: chirps.created_at};
+  var context = {chirp: chirps};
   var newHtml    = template(context);
   $("#chirpy").append(newHtml)})
+
+  Handlebars.registerHelper('formatTime', function(time) {
+    return moment(time).format('LLLL')
+  })
