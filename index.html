@@ -12,15 +12,33 @@
 </head>
 <body>
   <!-- Content goes here. -->
-  <div class="container">
-    <div class="container" id="chirpy">
-
-
-    </div>
+  <div class="container" id="chirpy">
   </div>
 
 
   <!-- Scripts go here. -->
+  <script id="chirps-template" type="text/x-handlebars-template">
+    {{#each chirp}}
+    <div class="row">
+      <div class="col-md-2">
+        <div class="row">
+          <img src = "{{user.photo_url}}" />
+        </div>
+        <div class="username">
+          <p>{{user.username}}</p>
+        </div>
+      </div>
+      <div class="col-md-10">
+        {{body}}
+      </div>
+      <div class="row">
+        Created on: {{created_at}}
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script
 src="https://code.jquery.com/jquery-3.1.1.min.js"
